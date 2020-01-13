@@ -36605,7 +36605,7 @@ if ${ac_cv_lib_spatialite_spatialite_init+:} false; then :
   $as_echo_n "(cached) " >&6
 else
   ac_check_lib_save_LIBS=$LIBS
-LIBS="-lspatialite -lsqlite3 -lproj $LIBS"
+LIBS="-lspatialite -lsqlite3 -lproj -lgeos -lgeos_c -lxml2 -llog $LIBS"
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 
@@ -36643,7 +36643,7 @@ fi
 
             if test "$SPATIALITE_INIT_FOUND" = "yes"; then
                 HAVE_SPATIALITE=yes
-                SPATIALITE_LIBS="-lspatialite -lsqlite3 -lproj"
+                SPATIALITE_LIBS="-lspatialite -lsqlite3 -lproj -lgeos_c -lgeos -xml2 -llog -liconv -lc++ -lc++abi"
                 LIBS="$LIBS $SPATIALITE_LIBS"
                 HAVE_SQLITE3=yes
             fi
@@ -36669,7 +36669,7 @@ if ${ac_cv_lib_spatialite_spatialite_init+:} false; then :
   $as_echo_n "(cached) " >&6
 else
   ac_check_lib_save_LIBS=$LIBS
-LIBS="-lspatialite -L$with_spatialite/lib -lspatialite $LIBS"
+LIBS="-lspatialite -L$with_spatialite/lib -lspatialite $LIBS -lgeos_c -lgeos -lxml2 -llog -liconv -lc++ -lc++abi"
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 
@@ -36748,8 +36748,8 @@ else
 fi
 
 
-    SQLITE3_CFLAGS=""
-    SQLITE3_LDFLAGS=""
+    SQLITE3_CFLAGS="-llog"
+    SQLITE3_LDFLAGS="-llog"
     SQLITE3_VERSION=""
     HAVE_SQLITE3="no"
 
@@ -36774,7 +36774,7 @@ fi
 
             unset ac_cv_lib_sqlite3_sqlite3_open
             saved_LIBS="$LIBS"
-            LIBS=""
+            LIBS="-llog"
             { $as_echo "$as_me:${as_lineno-$LINENO}: checking for sqlite3_open in -lsqlite3" >&5
 $as_echo_n "checking for sqlite3_open in -lsqlite3... " >&6; }
 if ${ac_cv_lib_sqlite3_sqlite3_open+:} false; then :
@@ -36838,7 +36838,7 @@ if ${ac_cv_lib_sqlite3_sqlite3_open+:} false; then :
   $as_echo_n "(cached) " >&6
 else
   ac_check_lib_save_LIBS=$LIBS
-LIBS="-lsqlite3  $LIBS"
+LIBS="-lsqlite3 -llog $LIBS"
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 
